@@ -85,15 +85,15 @@ sr.reveal('.choose__img, .calculate__content', {origin: 'left'})
 sr.reveal('.choose__content, .calculate__img', {origin: 'right'})
 
 /*=============== CALCULATE JS ===============*/
-const calculateForm = document.getElementById('calculate-form'),
-    calculateCm = document.getElementById('calculate-cm'),
-    calculateKg = document.getElementById('calculate-kg'),
-    calculateMessage = document.getElementById('calculate-message')
+const calculateForm = document.getElementById('calculate-form');
+const calculateCm = document.getElementById('calculate-cm');
+const calculateKg = document.getElementById('calculate-kg');
+const calculateMessage = document.getElementById('calculate-message')
 
 const calculateBmi = (e) =>{
     e.preventDefault()
 
-    if(calculateCm.value == ''|| calculateKg.value == ''){
+    if(calculateCm.value === ''|| calculateKg.value === ''){
         calculateMessage.classList.remove('color=green')
         calculateMessage.classList.add('color-red')
 
@@ -103,19 +103,19 @@ const calculateBmi = (e) =>{
             calculateMessage.textContent = ''
         }, 3000)
     } else{
-        const cm = calculateCm.value / 100,
-              kg = calculateKg.value,
-              bmi = math.round(kg / (cm * cm))
+        const cm = calculateCm.value / 100;
+        const kg = calculateKg.value;
+        const bmi = Math.round(kg / (cm * cm))
 
         if(bmi < 18.5){
             calculateMessage.classList.add('color-green')
-            calculateMessage.textContent = 'Your BMI is ${bmi} and you are skinny'
+            calculateMessage.textContent = `Your BMI is ${bmi} and you are skinny`
         } else if(bmi < 25){
             calculateMessage.classList.add('color-green')
-            calculateMessage.textContent = 'Your BMI is ${bmi} and you are healthy'
+            calculateMessage.textContent =  `Your BMI is ${bmi} and you are healthy`
         } else{
             calculateMessage.classList.add('color-green')
-            calculateMessage.textContent = 'Your BMI is ${bmi} and you are overweight'
+            calculateMessage.textContent = `Your BMI is ${bmi} and you are overweight`
         }
 
         calculateCm.value = ''
@@ -128,6 +128,7 @@ const calculateBmi = (e) =>{
 }
 
 calculateForm.addEventListener('submit', calculateBmi)
+
 
 /*=============== EMAIL JS ===============*/
 const contactForm = document.getElementById('contact-form'),
@@ -147,7 +148,7 @@ const sendEmail = (e) =>{
             contactMessage.textContent = ''
         }, 3000)
     } else{
-        emailjs.sendForm(service_8ii265v, template_2mor40j, #contact-form, HhcQJqMsVDwt2yc-)
+        emailjs.sendForm(service_8ii265v, template_2mor40j, contact-form, HhcQJqMsVDwt2yc)
             .then(() =>{
                 contactMessage.classList.add('color-green')
                 contactMessage.textContent = 'You registered successfully'
