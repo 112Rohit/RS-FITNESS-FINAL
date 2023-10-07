@@ -659,7 +659,7 @@ img {
 }
 
 .calculate__input[type=number]{
-  -moz-appearance: textfield;
+  appearance: textfield;
 }
 
 .calculate__label{
