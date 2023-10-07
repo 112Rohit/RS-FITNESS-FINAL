@@ -131,9 +131,9 @@ calculateForm.addEventListener('submit', calculateBmi)
 
 
 /*=============== EMAIL JS ===============*/
-const contactForm = document.getElementById('contact-form'),
-      contactMessage = document.getElementById('conatct-message'),
-      contactUser = document.getElementById('contact-user')
+const contactForm = document.getElementById('contact-form');
+const contactMessage = document.getElementById('contact-message');
+const contactUser = document.getElementById('contact-user');
 
 const sendEmail = (e) =>{
     e.preventDefault()
@@ -148,7 +148,7 @@ const sendEmail = (e) =>{
             contactMessage.textContent = ''
         }, 3000)
     } else{
-        emailjs.sendForm(service_8ii265v, template_2mor40j, contact-form, HhcQJqMsVDwt2yc)
+        emailjs.sendForm('service_8ii265v', 'template_2mor40j', '#contact-form', '8HhcQJqMsVDwt2yc-')
             .then(() =>{
                 contactMessage.classList.add('color-green')
                 contactMessage.textContent = 'You registered successfully'
